@@ -51,6 +51,7 @@ export interface FacilityFeature {
     | "Flame"
     | "Sun"
     | "Snowflake";
+
   isDesignCard?: boolean;
 }
 
@@ -67,9 +68,12 @@ export interface VideoItem {
     | "zumba"
     | "mma"
     | "strength";
+
   youtubeId: string;
   duration?: string;
   thumbnail?: string;
+
+  branch: "janakpuri" | "malviya-nagar" | "all";
 }
 
 /* =========================
@@ -121,6 +125,8 @@ export interface ScheduleClass {
   className: string;
   trainer: string;
   room: string;
+
+  branch: "janakpuri" | "malviya-nagar";
 }
 
 /* =========================
@@ -131,6 +137,9 @@ export interface Testimonial {
   id: string;
   name: string;
   role: string;
+
+  branch: "Janakpuri" | "Malviya Nagar";
+
   comment: string;
   rating: number;
   avatar: string;
