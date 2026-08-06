@@ -24,7 +24,7 @@ export function Testimonials({
 
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-xs font-black tracking-widest text-red-500 uppercase">
-            DELHI'S MOST TRUSTED GYM
+            PATNA MOST TRUSTED GYM
           </span>
 
           <h2 className="text-4xl sm:text-5xl font-black text-white uppercase tracking-tight mt-2 font-serif">

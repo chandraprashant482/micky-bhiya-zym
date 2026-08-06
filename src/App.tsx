@@ -12,6 +12,8 @@ import { Testimonials } from "./components/Testimonials";
 import { Footer } from "./components/Footer";
 import { PassModal } from "./components/PassModal";
 import { CoachModal } from "./components/CoachModal";
+import CallButton from "./components/CallButton";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 import {
   BRANCHES,
@@ -31,12 +33,11 @@ export default function App() {
 
   const [passSubmitted, setPassSubmitted] = useState(false);
 
-  const [passFormData, setPassFormData] = useState({
-    name: "",
-    phone: "",
-    branch: "janakpuri",
-    classInterest: "Zumba",
-  });
+ const [passFormData, setPassFormData] = useState({
+  name: "",
+  phone: "",
+  classInterest: "Zumba",
+});
 
   const [coachForm, setCoachForm] = useState({
     goal: "Fat Loss & Muscle Toning",
@@ -183,6 +184,9 @@ Visit Lagoon Fitness for a personalized plan.`
         onSubmit={handleCoachSubmit}
         onClose={() => setCoachModalOpen(false)}
       />
+
+      <CallButton />
+      <WhatsAppButton />
 
     </div>
   );
