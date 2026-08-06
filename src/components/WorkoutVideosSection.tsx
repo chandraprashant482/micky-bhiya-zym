@@ -1,132 +1,155 @@
-import React, { useState } from 'react';
-import { Play, X, ExternalLink, Filter } from 'lucide-react';
-import { VideoItem, Branch } from '../types';
+import React, { useState } from "react";
+import { Play, X } from "lucide-react";
+import { VideoItem } from "../types";
 
 interface WorkoutVideosSectionProps {
   videos: VideoItem[];
-  activeBranch: Branch;
 }
 
-export const WorkoutVideosSection: React.FC<WorkoutVideosSectionProps> = ({ videos, activeBranch }) => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [activeVideoModal, setActiveVideoModal] = useState<VideoItem | null>(null);
+export const WorkoutVideosSection: React.FC<WorkoutVideosSectionProps> = ({
+  videos,
+}) => {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [activeVideoModal, setActiveVideoModal] = useState<VideoItem | null>(
+    null
+  );
 
-  // Filter videos by branch and category
-  const filteredVideos = videos.filter((v) => {
-    const branchMatch = v.branch === 'all' || v.branch === activeBranch.id;
-    const categoryMatch = selectedCategory === 'all' || v.category === selectedCategory;
-    return branchMatch && categoryMatch;
-  });
+  const filteredVideos = videos.filter(
+    (video) =>
+      selectedCategory === "all" || video.category === selectedCategory
+  );
+
+  const categories = [
+    { id: "all", label: "All Videos" },
+    { id: "walkthrough", label: "Gym Tour" },
+    { id: "workout", label: "Workouts" },
+    { id: "zumba", label: "Zumba" },
+    { id: "strength", label: "Strength" },
+  ];
 
   return (
-    <section id="videos" className="py-20 bg-zinc-950 relative border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto">
-          <span className="text-xs font-black tracking-widest text-red-500 uppercase">
-            HIGH QUALITY WORKOUT & CLUB SHOWCASE
+    <section
+      id="videos"
+      className="relative py-24 bg-gradient-to-b from-black via-zinc-950 to-black border-t border-white/10"
+    >
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* Header */}
+        <div className="text-center max-w-4xl mx-auto">
+          <span className="inline-block text-xs font-black tracking-[0.35em] uppercase text-red-500">
+            PREMIUM FITNESS EXPERIENCE
           </span>
-          <h2 className="text-4xl sm:text-5xl font-black text-white uppercase tracking-tight mt-2 font-serif">
-            EXPLORE <span className="text-red-600">WORKOUT VIDEOS</span>
+
+          <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-black uppercase text-white leading-tight">
+            EXPLORE OUR
+            <br />
+            <span className="text-red-600">
+              WORKOUT VIDEOS
+            </span>
           </h2>
-          <p className="text-zinc-400 text-sm mt-3">
-            Watch real walkthroughs, explosive Zumba group sessions, heavy powerlifting clips, and MMA conditioning at Component Fitness {activeBranch.name}.
+
+          <p className="mt-6 text-zinc-400 text-lg leading-8">
+            Discover Lagoon Fitness through exclusive gym walkthroughs,
+            transformation stories, strength training sessions, Zumba classes,
+            functional workouts, and real member experiences from Patna's most
+            premium fitness destination.
           </p>
         </div>
 
-        {/* Category Filters */}
-        <div className="mt-8 flex flex-wrap justify-center gap-2">
-          {[
-            { id: 'all', label: 'All Videos' },
-            { id: 'walkthrough', label: 'Club Walkthrough' },
-            { id: 'workout', label: 'Workouts & PT' },
-            { id: 'zumba', label: 'Zumba & Dance' },
-            { id: 'strength', label: 'Strength & Turf' },
-          ].map((cat) => (
+        {/* Filters */}
+        <div className="mt-12 flex flex-wrap justify-center gap-3">
+
+          {categories.map((category) => (
             <button
-              key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
-              className={`px-4 py-2 rounded-full text-xs font-bold uppercase transition-all ${
-                selectedCategory === cat.id
-                  ? 'bg-red-600 text-white shadow-lg shadow-red-600/30'
-                  : 'bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800'
+              key={category.id}
+              onClick={() => setSelectedCategory(category.id)}
+              className={`px-6 py-3 rounded-full text-sm uppercase font-bold transition-all duration-300 ${
+                selectedCategory === category.id
+                  ? "bg-red-600 text-white shadow-lg shadow-red-600/30"
+                  : "bg-zinc-900 border border-zinc-800 text-zinc-400 hover:border-red-500 hover:text-white"
               }`}
             >
-              {cat.label}
+              {category.label}
             </button>
           ))}
+
         </div>
 
-        {/* Video Cards Grid */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Videos */}
+        <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+
           {filteredVideos.map((video) => (
             <div
               key={video.id}
-              className="group relative rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden hover:border-red-600/50 transition-all duration-300 hover:-translate-y-1 shadow-xl"
+              className="group overflow-hidden rounded-3xl bg-zinc-900 border border-zinc-800 hover:border-red-600 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(220,38,38,0.18)]"
             >
-              {/* Video Thumbnail Container */}
-              <div className="relative aspect-video bg-black overflow-hidden">
+
+              <div className="relative aspect-video overflow-hidden">
+
                 <iframe
-                  src={`https://www.youtube.com/embed/${video.youtubeId}?controls=1&modestbranding=1`}
+                  src={`https://www.youtube.com/embed/${video.youtubeId}`}
                   title={video.title}
-                  className="w-full h-full pointer-events-auto"
+                  className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
-                
-                {/* Duration Tag */}
+
                 {video.duration && (
-                  <span className="absolute bottom-3 right-3 px-2 py-1 rounded bg-black/80 text-white text-[10px] font-mono font-bold">
+                  <span className="absolute bottom-4 right-4 px-3 py-1 rounded bg-black/80 text-white text-xs font-bold">
                     {video.duration}
                   </span>
                 )}
+
               </div>
 
-              {/* Card Meta Info */}
-              <div className="p-5 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="px-2.5 py-0.5 rounded-full bg-red-950/80 border border-red-800/50 text-red-400 text-[10px] font-bold uppercase">
-                      {video.category}
-                    </span>
-                    <span className="text-[11px] text-zinc-500 font-semibold uppercase">
-                      {video.branch === 'all' ? 'All Branches' : `${video.branch} Branch`}
-                    </span>
-                  </div>
-                  <h3 className="text-white font-extrabold text-base line-clamp-2 group-hover:text-red-500 transition-colors">
-                    {video.title}
-                  </h3>
-                </div>
+              <div className="p-6">
+
+                <span className="inline-block px-3 py-1 rounded-full bg-red-600/20 border border-red-600/30 text-red-400 text-xs uppercase font-bold">
+                  {video.category}
+                </span>
+
+                <h3 className="mt-4 text-xl font-black text-white group-hover:text-red-500 transition">
+                  {video.title}
+                </h3>
 
                 <button
                   onClick={() => setActiveVideoModal(video)}
-                  className="mt-4 inline-flex items-center gap-2 text-xs font-bold text-red-500 hover:text-red-400 uppercase tracking-wider"
+                  className="mt-6 flex items-center gap-2 text-red-500 font-bold uppercase text-sm hover:text-red-400"
                 >
-                  <Play className="w-3.5 h-3.5 fill-current" />
-                  <span>Open Full Screen</span>
+                  <Play className="w-4 h-4 fill-current" />
+                  Watch Full Video
                 </button>
+
               </div>
+
             </div>
           ))}
+
         </div>
 
-        {/* Video Fullscreen Modal */}
+        {/* Video Modal */}
         {activeVideoModal && (
-          <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-6">
-            <div className="relative w-full max-w-4xl bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl">
-              <div className="flex items-center justify-between p-4 border-b border-zinc-800">
-                <h3 className="text-white font-bold text-sm sm:text-base">
+          <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-lg flex items-center justify-center p-6">
+
+            <div className="w-full max-w-5xl rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800">
+
+              <div className="flex items-center justify-between p-5 border-b border-zinc-800">
+
+                <h3 className="text-white font-bold text-lg">
                   {activeVideoModal.title}
                 </h3>
+
                 <button
                   onClick={() => setActiveVideoModal(null)}
-                  className="p-1 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-800"
+                  className="text-zinc-400 hover:text-white"
                 >
-                  <X className="w-6 h-6" />
+                  <X size={28} />
                 </button>
+
               </div>
-              <div className="relative aspect-video w-full bg-black">
+
+              <div className="aspect-video">
+
                 <iframe
                   src={`https://www.youtube.com/embed/${activeVideoModal.youtubeId}?autoplay=1`}
                   title={activeVideoModal.title}
@@ -134,8 +157,11 @@ export const WorkoutVideosSection: React.FC<WorkoutVideosSectionProps> = ({ vide
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
+
               </div>
+
             </div>
+
           </div>
         )}
 
