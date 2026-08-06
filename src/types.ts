@@ -1,3 +1,24 @@
+// src/types.ts
+
+/* =========================
+   Branch
+========================= */
+
+export interface Branch {
+  id: string;
+  name: string;
+  address: string;
+  phone: string;
+  email: string;
+  mapUrl: string;
+  embedMapUrl: string;
+  tagline: string;
+}
+
+/* =========================
+   Services
+========================= */
+
 export interface ServiceItem {
   id: string;
   title: string;
@@ -6,21 +27,54 @@ export interface ServiceItem {
   description: string;
 }
 
+/* =========================
+   Facility Features
+========================= */
+
 export interface FacilityFeature {
   id: string;
   title: string;
-  iconName: string;
+  iconName:
+    | "Award"
+    | "Clock"
+    | "Sparkles"
+    | "Lock"
+    | "Apple"
+    | "Activity"
+    | "Dumbbell"
+    | "Users"
+    | "Key"
+    | "ShieldCheck"
+    | "Zap"
+    | "UserCheck"
+    | "HeartPulse"
+    | "Flame"
+    | "Sun"
+    | "Snowflake";
   isDesignCard?: boolean;
 }
+
+/* =========================
+   Workout Videos
+========================= */
 
 export interface VideoItem {
   id: string;
   title: string;
-  category: "walkthrough" | "workout" | "zumba" | "mma" | "strength";
+  category:
+    | "walkthrough"
+    | "workout"
+    | "zumba"
+    | "mma"
+    | "strength";
   youtubeId: string;
   duration?: string;
   thumbnail?: string;
 }
+
+/* =========================
+   Fitness Classes
+========================= */
 
 export interface FitnessClass {
   id: string;
@@ -31,6 +85,10 @@ export interface FitnessClass {
   caloriesBurned: string;
   description: string;
 }
+
+/* =========================
+   Trainers
+========================= */
 
 export interface Trainer {
   id: string;
@@ -43,21 +101,31 @@ export interface Trainer {
   rating: number;
 }
 
+/* =========================
+   Weekly Schedule
+========================= */
+
+export type WeekDay =
+  | "Monday"
+  | "Tuesday"
+  | "Wednesday"
+  | "Thursday"
+  | "Friday"
+  | "Saturday"
+  | "Sunday";
+
 export interface ScheduleClass {
   id: string;
+  day: WeekDay;
   time: string;
   className: string;
   trainer: string;
   room: string;
-  day:
-    | "Monday"
-    | "Tuesday"
-    | "Wednesday"
-    | "Thursday"
-    | "Friday"
-    | "Saturday"
-    | "Sunday";
 }
+
+/* =========================
+   Testimonials
+========================= */
 
 export interface Testimonial {
   id: string;
@@ -66,4 +134,21 @@ export interface Testimonial {
   comment: string;
   rating: number;
   avatar: string;
+}
+
+/* =========================
+   Forms
+========================= */
+
+export interface PassFormData {
+  name: string;
+  phone: string;
+  branch: string;
+  classInterest: string;
+}
+
+export interface CoachFormData {
+  goal: string;
+  fitnessLevel: string;
+  userQuery: string;
 }
