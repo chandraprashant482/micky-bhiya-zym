@@ -4,7 +4,6 @@ import { X, CheckCircle2 } from "lucide-react";
 interface PassFormData {
   name: string;
   phone: string;
-  branch: string;
   classInterest: string;
 }
 
@@ -12,11 +11,8 @@ interface PassModalProps {
   open: boolean;
   submitted: boolean;
   formData: PassFormData;
-
   onClose: () => void;
-
   onSubmit: (e: React.FormEvent) => void;
-
   setFormData: React.Dispatch<
     React.SetStateAction<PassFormData>
   >;
@@ -60,7 +56,6 @@ export function PassModal({
           </div>
         ) : (
           <>
-
             <div className="text-center mb-6">
 
               <span className="px-3 py-1 rounded-full bg-red-950 text-red-400 text-[10px] font-extrabold uppercase tracking-wider">
@@ -125,56 +120,29 @@ export function PassModal({
                 />
 
               </div>
-                            <div className="grid grid-cols-2 gap-3">
 
-                <div>
+              <div>
 
-                  <label className="text-[11px] font-bold text-zinc-400 uppercase block mb-1">
-                    Preferred Branch
-                  </label>
+                <label className="text-[11px] font-bold text-zinc-400 uppercase block mb-1">
+                  Interested Class
+                </label>
 
-                  <select
-                    value={formData.branch}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        branch: e.target.value,
-                      })
-                    }
-                    className="w-full px-3 py-3 rounded-xl bg-black border border-zinc-800 text-white text-xs focus:outline-none focus:border-red-600"
-                  >
-                    <option value="janakpuri">Janakpuri</option>
-                    <option value="malviya-nagar">
-                      Malviya Nagar
-                    </option>
-                  </select>
-
-                </div>
-
-                <div>
-
-                  <label className="text-[11px] font-bold text-zinc-400 uppercase block mb-1">
-                    Interested Class
-                  </label>
-
-                  <select
-                    value={formData.classInterest}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        classInterest: e.target.value,
-                      })
-                    }
-                    className="w-full px-3 py-3 rounded-xl bg-black border border-zinc-800 text-white text-xs focus:outline-none focus:border-red-600"
-                  >
-                    <option value="Zumba">Zumba Fitness</option>
-                    <option value="Bhangra">Bhangra Blast</option>
-                    <option value="Yoga">Power Yoga</option>
-                    <option value="Pilates">Core Pilates</option>
-                    <option value="Gym">Gym & Matrix Turf</option>
-                  </select>
-
-                </div>
+                <select
+                  value={formData.classInterest}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      classInterest: e.target.value,
+                    })
+                  }
+                  className="w-full px-4 py-3 rounded-xl bg-black border border-zinc-800 text-white text-xs focus:outline-none focus:border-red-600"
+                >
+                  <option value="Zumba">Zumba Fitness</option>
+                  <option value="Bhangra">Bhangra Blast</option>
+                  <option value="Yoga">Power Yoga</option>
+                  <option value="Pilates">Core Pilates</option>
+                  <option value="Gym">Gym & Matrix Turf</option>
+                </select>
 
               </div>
 
@@ -186,7 +154,6 @@ export function PassModal({
               </button>
 
             </form>
-
           </>
         )}
       </div>

@@ -10,22 +10,23 @@ export const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white font-black text-2xl shadow-lg shadow-red-600/30 group-hover:scale-105 transition-transform">
-              LF
-            </div>
+<a href="#hero" className="flex items-center gap-3 group">
+  <img
+    src="/laggon_gym_logo.png"
+    alt="Lagoon Gym Logo"
+    className="h-14 w-14 object-contain transition-transform duration-300 group-hover:scale-105"
+  />
 
-            <div className="flex flex-col">
-              <span className="text-white font-black tracking-wider text-xl uppercase font-serif">
-                LAGOON <span className="text-red-600">FITNESS</span>
-              </span>
+  <div className="flex flex-col">
+    <span className="text-white font-black tracking-wider text-xl uppercase font-serif">
+      LAGOON <span className="text-red-600">FITNESS</span>
+    </span>
 
-              <span className="text-[10px] tracking-widest text-zinc-400 uppercase font-bold">
-                24X7 Ultra Luxury Club
-              </span>
-            </div>
-          </a>
-
+    <span className="text-[10px] tracking-widest text-zinc-400 uppercase font-bold">
+      24×7 Ultra Luxury GYM
+    </span>
+  </div>
+</a>
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             <a

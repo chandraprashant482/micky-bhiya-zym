@@ -1,5 +1,5 @@
 {
-  "name": "Lagoon Fitness - Premium Gym & Fitness Club",
+  "name": "Lagoon Fitness - Premium Gym & Fitness Gym",
   "description": "Dark-themed, high-energy React website for Lagoon Fitness featuring workout videos, 100+ group classes, branch walkthroughs, trainer profiles, interactive schedules, and AI fitness coach.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

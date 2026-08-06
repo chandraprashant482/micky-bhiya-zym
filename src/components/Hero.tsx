@@ -50,7 +50,7 @@ export const Hero: React.FC<HeroProps> = ({
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-red-500/40 bg-red-900/20 backdrop-blur-md text-red-300 uppercase tracking-[0.25em] text-xs font-bold mb-8">
           <Flame className="w-4 h-4 animate-pulse text-red-500" />
-          PATNA • OPEN 24×7 • PREMIUM FITNESS CLUB
+          PATNA • OPEN 24×7 • PREMIUM FITNESS GYM
         </div>
 
         {/* Heading */}

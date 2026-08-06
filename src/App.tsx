@@ -49,16 +49,43 @@ export default function App() {
   const [coachResponse, setCoachResponse] =
     useState<string | null>(null);
 
-  const handlePassSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handlePassSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    setPassSubmitted(true);
+  try {
+    const response = await fetch("https://formspree.io/f/mjybkraq", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name: passFormData.name,
+        phone: passFormData.phone,
+        interestedClass: passFormData.classInterest,
+      }),
+    });
 
-    setTimeout(() => {
-      setPassSubmitted(false);
-      setPassModalOpen(false);
-    }, 2500);
-  };
+    if (response.ok) {
+      setPassSubmitted(true);
+
+      setTimeout(() => {
+        setPassSubmitted(false);
+        setPassModalOpen(false);
+
+        setPassFormData({
+          name: "",
+          phone: "",
+          classInterest: "Zumba",
+        });
+      }, 2000);
+    } else {
+      alert("Failed to submit form.");
+    }
+  } catch (error) {
+    alert("Something went wrong.");
+  }
+};
 
   const handleReserveClass = (className: string) => {
     setPassFormData((prev) => ({

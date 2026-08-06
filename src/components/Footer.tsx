@@ -14,23 +14,20 @@ interface FooterProps {
   onOpenPassModal: () => void;
 }
 
-export function Footer({
-  branches,
-  onOpenPassModal,
-}: FooterProps) {
+export function Footer({ branches, onOpenPassModal }: FooterProps) {
   return (
     <footer className="bg-black border-t border-white/10 py-16 text-zinc-400 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-zinc-900">
-
           {/* Logo */}
 
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center text-white font-black text-xl">
-                LF
-              </div>
+              <img
+                src="/laggon_gym_logo.png"
+                alt="Logo"
+                className="w-10 h-10 object-contain"
+              />
 
               <span className="text-white font-black tracking-wider text-lg uppercase font-serif">
                 LAGOON <span className="text-red-600">FITNESS</span>
@@ -52,7 +49,6 @@ export function Footer({
               </h4>
 
               <div className="space-y-2">
-
                 <p className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
                   <span>{branch.address}</span>
@@ -77,7 +73,6 @@ export function Footer({
                     {branch.email}
                   </a>
                 </p>
-
               </div>
             </div>
           ))}
@@ -104,44 +99,30 @@ export function Footer({
               Claim Free Trial Pass
             </button>
           </div>
-
         </div>
 
         {/* Bottom */}
 
         <div className="pt-8 flex flex-col sm:flex-row justify-between items-center text-zinc-600 text-[11px]">
-
           <p>
-            © {new Date().getFullYear()} Lagoon Fitness Club.
-            All Rights Reserved.
+            © {new Date().getFullYear()} Lagoon Fitness Gym. All Rights
+            Reserved.
           </p>
 
           <div className="flex gap-6 mt-4 sm:mt-0">
-
-            <a
-              href="#hero"
-              className="hover:text-zinc-400"
-            >
+            <a href="#hero" className="hover:text-zinc-400">
               Privacy Policy
             </a>
 
-            <a
-              href="#hero"
-              className="hover:text-zinc-400"
-            >
+            <a href="#hero" className="hover:text-zinc-400">
               Terms of Service
             </a>
 
-            <a
-              href="#hero"
-              className="hover:text-zinc-400"
-            >
+            <a href="#hero" className="hover:text-zinc-400">
               Branch Locations
             </a>
-
           </div>
         </div>
-
       </div>
     </footer>
   );

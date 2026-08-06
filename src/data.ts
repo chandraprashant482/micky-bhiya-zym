@@ -2,25 +2,16 @@ import { Branch, ServiceItem, FacilityFeature, VideoItem, FitnessClass, Trainer,
 
 export const BRANCHES: Branch[] = [
   {
-    id: 'janakpuri',
-    name: 'Janakpuri',
-    address: 'C-1/123, Block C1, Janakpuri, Delhi, 110058',
-    phone: '+91 8800410044',
-    email: 'info@lagoonfitness.co.in',
-    mapUrl: 'https://maps.app.goo.gl/dAfbne6pjjaNXqeb6',
-    embedMapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.1643198031!2d77.079728!3d28.618594!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04c2c5c5c5c5%3A0x0!2zMjjkwrAzNycwNi45Ik4gNzcsMDRnMzcuMCI1!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin',
-    tagline: 'Most Premium & Biggest Club of Janakpuri'
+    id: "parsa-bazar",
+    name: "MICKY GYM",
+    address:
+      "Parsa Bazar - Sampatchak Main Rd, near Annie Besant International School, Parsa Bazar, Punpun, Parsa, Bihar 804453",
+    phone: "+91 6206145456",
+    email: "info@mickygym.com",
+    mapUrl: "",
+    embedMapUrl: "",
+    tagline: "Premium Fitness Destination of Patna",
   },
-  {
-    id: 'malviya-nagar',
-    name: 'Malviya Nagar',
-    address: 'D-80, First Floor, Malviya Nagar Rd, above PNB, Main Market, Delhi',
-    phone: '+91 8800117699',
-    email: 'info@lagoonfitness.co.in',
-    mapUrl: 'https://maps.app.goo.gl/Tk4n185A3YgMXMbh9',
-    embedMapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.5!2d77.2!3d28.53!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjg_MzEnNDguMCJOIDc3wrAxMicwMC4wIkU!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin',
-    tagline: 'Ultra-Luxe 24x7 Fitness Haven of South Delhi'
-  }
 ];
 
 export const SERVICES: ServiceItem[] = [
@@ -90,7 +81,7 @@ export const FACILITY_FEATURES: FacilityFeature[] = [
 export const WORKOUT_VIDEOS: VideoItem[] = [
   {
     id: 'v1',
-    title: 'Lagoon Fitness Janakpuri Grand Club Tour',
+    title: 'Lagoon Fitness Janakpuri Grand Gym Tour',
     category: 'walkthrough',
     youtubeId: '2owjlgHFHz0',
     branch: 'janakpuri',
