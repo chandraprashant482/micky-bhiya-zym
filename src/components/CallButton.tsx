@@ -9,7 +9,18 @@ const CallButton: React.FC = () => {
       className="fixed bottom-8 left-8 z-50 group"
     >
       {/* Glow */}
-      <div className="absolute inset-0 rounded-full bg-cyan-400/40 blur-2xl animate-breathing animate-blinking"></div>
+     {/* Premium Glow Ring */}
+<div
+  className="
+    absolute
+    inset-0
+    rounded-full
+    bg-blue-500/30
+    blur-xl
+    scale-110
+    animate-breathing
+  "
+></div>
 
       {/* Ripple */}
       <div className="absolute inset-0 rounded-full border border-white/30 animate-ripple"></div>

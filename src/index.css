@@ -82,7 +82,7 @@
 }
 
 .animate-ripple{
-  animation:ripple 2.5s ease-out infinite;
+  animation:ripple 1s ease-out infinite;
 }
 
 /* ---------------- Hover ---------------- */
