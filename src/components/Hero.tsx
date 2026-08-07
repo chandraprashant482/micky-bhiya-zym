@@ -48,10 +48,10 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
 
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-red-500/40 bg-red-900/20 backdrop-blur-md text-red-300 uppercase tracking-[0.25em] text-xs font-bold mb-8">
+        {/* <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-red-500/40 bg-red-900/20 backdrop-blur-md text-red-300 uppercase tracking-[0.25em] text-xs font-bold mb-8">
           <Flame className="w-4 h-4 animate-pulse text-red-500" />
           PATNA • OPEN 24×7 • PREMIUM FITNESS GYM
-        </div>
+        </div> */}
 
         {/* Heading */}
         <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black uppercase leading-[0.9] drop-shadow-2xl">
