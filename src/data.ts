@@ -7,7 +7,7 @@ export const BRANCHES: Branch[] = [
     address:
       "Parsa Bazar - Sampatchak Main Rd, near Annie Besant International School, Parsa Bazar, Punpun, Parsa, Bihar 804453",
     phone: "+91 6206145456",
-    email: " sushantsing3858@gmail.com",
+    email: " sushantsingh3858@gmail.com",
     mapUrl: "",
     embedMapUrl: "",
     tagline: "Premium Fitness Destination of Patna",
