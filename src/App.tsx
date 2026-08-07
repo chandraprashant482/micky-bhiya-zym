@@ -113,7 +113,7 @@ export default function App() {
 • Protein Rich Diet
 • Sleep 7-8 Hours
 
-Visit Lagoon Fitness for a personalized plan.`
+Visit Lagoon Fitnes Gyms for a personalized plan.`
       );
 
       setCoachLoading(false);

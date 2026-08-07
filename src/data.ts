@@ -3,11 +3,11 @@ import { Branch, ServiceItem, FacilityFeature, VideoItem, FitnessClass, Trainer,
 export const BRANCHES: Branch[] = [
   {
     id: "parsa-bazar",
-    name: "MICKY GYM",
+    name: "LAGOON FITNESS GYM",
     address:
       "Parsa Bazar - Sampatchak Main Rd, near Annie Besant International School, Parsa Bazar, Punpun, Parsa, Bihar 804453",
     phone: "+91 6206145456",
-    email: "info@mickygym.com",
+    email: " sushantsing3858@gmail.com",
     mapUrl: "",
     embedMapUrl: "",
     tagline: "Premium Fitness Destination of Patna",
@@ -81,9 +81,9 @@ export const FACILITY_FEATURES: FacilityFeature[] = [
 export const WORKOUT_VIDEOS: VideoItem[] = [
   {
     id: 'v1',
-    title: 'Lagoon Fitness Janakpuri Grand Gym Tour',
+    title: 'Lagoon Fitness Gym Tour',
     category: 'walkthrough',
-    youtubeId: '2owjlgHFHz0',
+    youtubeId: '4g9fOfKg7Bo',
     branch: 'janakpuri',
     duration: '02:45'
   },
@@ -91,7 +91,7 @@ export const WORKOUT_VIDEOS: VideoItem[] = [
     id: 'v2',
     title: 'High Energy Zumba & Bhangra Group Class',
     category: 'zumba',
-    youtubeId: 'LSNjRenelJM',
+    youtubeId: '4g9fOfKg7Bo',
     branch: 'janakpuri',
     duration: '03:15'
   },
@@ -99,15 +99,15 @@ export const WORKOUT_VIDEOS: VideoItem[] = [
     id: 'v3',
     title: 'Heavy Strength & Functional Turf Walkthrough',
     category: 'strength',
-    youtubeId: '_vjUlXfjnTE',
+    youtubeId: '4g9fOfKg7Bo',
     branch: 'janakpuri',
     duration: '01:50'
   },
   {
     id: 'v4',
-    title: 'Lagoon Fitness Malviya Nagar Night Vibe',
+    title: 'Lagoon Fitness Gym Night Vibe',
     category: 'walkthrough',
-    youtubeId: 'z5KseA1MSLs',
+    youtubeId: '4g9fOfKg7Bo',
     branch: 'malviya-nagar',
     duration: '02:10'
   },
@@ -115,7 +115,7 @@ export const WORKOUT_VIDEOS: VideoItem[] = [
     id: 'v5',
     title: 'Full Body HIIT Workout Routine by PT Lead',
     category: 'workout',
-    youtubeId: '2owjlgHFHz0',
+    youtubeId: '4g9fOfKg7Bo',
     branch: 'all',
     duration: '04:30'
   },
@@ -123,7 +123,7 @@ export const WORKOUT_VIDEOS: VideoItem[] = [
     id: 'v6',
     title: 'MMA & Combat Conditioning Session',
     category: 'workout',
-    youtubeId: 'LSNjRenelJM',
+    youtubeId: '4g9fOfKg7Bo',
     branch: 'all',
     duration: '03:40'
   }
@@ -189,11 +189,11 @@ export const FITNESS_CLASSES: FitnessClass[] = [
 export const TRAINERS: Trainer[] = [
   {
     id: 't1',
-    name: 'Rajeev Sharma',
+    name: 'Sushant Singh',
     role: 'Head Strength Coach & Master PT',
     experience: '9+ Years',
     specialties: ['Hypertrophy', 'Powerlifting', 'Fat Loss Protocol'],
-    image: 'https://images.unsplash.com/photo-1567013127542-490d757e51fc?q=80&w=800&auto=format&fit=crop',
+    image: "/mickyphoto.png",
     bio: 'Certified ACSM Strength Specialist with over 500 transformation success stories in Delhi.',
     rating: 4.9
   },
@@ -240,7 +240,7 @@ export const SCHEDULE: ScheduleClass[] = [
   { id: 's7', time: '06:00 PM - 07:00 PM', className: 'Bhangra Blast', trainer: 'Simran Kaur', room: 'Dance Studio', day: 'Tuesday', branch: 'janakpuri' },
 
   { id: 's8', time: '06:30 AM - 07:30 AM', className: 'Power Yoga', trainer: 'Ananya Verma', room: 'Mind Studio 1', day: 'Wednesday', branch: 'janakpuri' },
-  { id: 's9', time: '07:30 AM - 08:30 AM', className: 'HIIT Circuit Training', trainer: 'Rajeev Sharma', room: 'Main Gym Floor', day: 'Wednesday', branch: 'janakpuri' },
+  { id: 's9', time: '07:30 AM - 08:30 AM', className: 'HIIT Circuit Training', trainer: 'Sushant Singh', room: 'Main Gym Floor', day: 'Wednesday', branch: 'janakpuri' },
   { id: 's10', time: '06:00 PM - 07:00 PM', className: 'Zumba Party', trainer: 'Simran Kaur', room: 'Dance Studio', day: 'Wednesday', branch: 'janakpuri' },
 
   { id: 's11', time: '07:00 AM - 08:00 AM', className: 'Functional Training', trainer: 'Vikram Singh', room: 'Turf Zone', day: 'Thursday', branch: 'janakpuri' },
@@ -261,7 +261,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Amanpreet Singh',
     role: 'Janakpuri Member',
     branch: 'Janakpuri',
-    comment: 'The 24/7 access at Lagoon Fitness is a lifesaver for my late-night shifts! Matrix machines are super smooth, and the steam bath after a brutal leg day is pure luxury.',
+    comment: 'The 24/7 access at Lagoon Fitness Gym is a lifesaver for my late-night shifts! Matrix machines are super smooth, and the steam bath after a brutal leg day is pure luxury.',
     rating: 5,
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop'
   },

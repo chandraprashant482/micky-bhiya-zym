@@ -19,8 +19,8 @@ export const Navbar: React.FC = () => {
 
   <div className="flex flex-col">
     <span className="text-white font-black tracking-wider text-xl uppercase font-serif">
-      LAGOON <span className="text-red-600">FITNESS</span>
-    </span>
+  LAGOON <span className="text-red-600">FITNESS</span> GYM
+</span>
 
     <span className="text-[10px] tracking-widest text-zinc-400 uppercase font-bold">
       24×7 Ultra Luxury GYM

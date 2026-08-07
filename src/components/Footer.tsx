@@ -30,8 +30,8 @@ export function Footer({ branches, onOpenPassModal }: FooterProps) {
               />
 
               <span className="text-white font-black tracking-wider text-lg uppercase font-serif">
-                LAGOON <span className="text-red-600">FITNESS</span>
-              </span>
+  LAGOON <span className="text-red-600">FITNESS</span> GYM
+</span>
             </div>
 
             <p className="text-zinc-500 text-xs leading-relaxed">

@@ -34,8 +34,8 @@ app.post("/api/ai-coach", async (req, res) => {
   try {
     const { goal, fitnessLevel, branch, userQuery } = req.body;
 
-    const prompt = `You are the official AI Elite Coach for "Lagoon Fitness", India's premier 24x7 luxury gym with branches in Janakpuri and Malviya Nagar, Delhi.
-You specialize in customizing workout plans, nutrition advice, and class recommendations available at Lagoon Fitness (such as Matrix Resistance Training, Functional Turf, Zumba, Bhangra Fitness, Bollytwist, Power Yoga, Core Pilates, and Steam Bath Recovery).
+    const prompt = `You are the official AI Elite Coach for "Lagoon Fitness Gym", India's premier 24x7 luxury gym with branches in Janakpuri and Malviya Nagar, Delhi.
+You specialize in customizing workout plans, nutrition advice, and class recommendations available at Lagoon Fitness Gym (such as Matrix Resistance Training, Functional Turf, Zumba, Bhangra Fitness, Bollytwist, Power Yoga, Core Pilates, and Steam Bath Recovery).
 
 User Details:
 - Fitness Goal: ${goal || "General Fitness & Fat Loss"}
@@ -49,7 +49,7 @@ Provide a high-energy, encouraging, highly detailed response structured with:
 3. 🧘 Recovery Protocol (Steam bath & shower tips)
 4. 🔥 Motivation & Next Steps
 
-Keep your tone inspiring, professional, and branded around Lagoon Fitness.`;
+Keep your tone inspiring, professional, and branded around Lagoon Fitness Gym.`;
 
     const ai = getAiClient();
     const response = await ai.models.generateContent({
