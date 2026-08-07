@@ -191,7 +191,7 @@ export const TRAINERS: Trainer[] = [
     id: 't1',
     name: 'Sushant Singh',
     role: 'Head Strength Coach & Master PT',
-    experience: '9+ Years',
+    experience: '11+ Years',
     specialties: ['Hypertrophy', 'Powerlifting', 'Fat Loss Protocol'],
     image: "/mickyphoto.png",
     bio: 'Certified ACSM Strength Specialist with over 500 transformation success stories in Delhi.',
@@ -199,31 +199,31 @@ export const TRAINERS: Trainer[] = [
   },
   {
     id: 't2',
-    name: 'Simran Kaur',
+    name: 'Prashant Yadav,
     role: 'Group Fitness & Zumba Lead',
     experience: '6+ Years',
     specialties: ['Zumba Official', 'Bhangra Cardio', 'Pilates Core'],
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop',
+    image: "/mickyphoto.png",
     bio: 'Licensed Zumba Fitness instructor bringing electrifying rhythm and fat-melting beats to every class.',
     rating: 5.0
   },
   {
     id: 't3',
-    name: 'Vikram Singh',
+    name: 'Sushant Singh',
     role: 'Functional & Combat Conditioning',
     experience: '8+ Years',
     specialties: ['Kettlebell Level 2', 'Calisthenics', 'MMA Conditioning'],
-    image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=800&auto=format&fit=crop',
+    image: "/mickyphoto.png",
     bio: 'Former national martial arts practitioner specializing in explosive athletic endurance & agility.',
     rating: 4.8
   },
   {
     id: 't4',
-    name: 'Ananya Verma',
+    name: 'Prashant Kumar',
     role: 'Power Yoga & Mindful Wellness',
     experience: '7+ Years',
     specialties: ['Ashtanga Vinyasa', 'Flexibility Rehab', 'Posture Correction'],
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop',
+   image: "/mickyphoto.png",
     bio: 'RYT-500 Certified Yoga Alliance Master focused on mobility, core stability, and holistic mindfulness.',
     rating: 4.9
   }
