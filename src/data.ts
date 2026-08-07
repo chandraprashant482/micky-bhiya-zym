@@ -199,7 +199,7 @@ export const TRAINERS: Trainer[] = [
   },
   {
     id: 't2',
-    name: 'Prashant Yadav,
+    name: 'Prashant Yadav',
     role: 'Group Fitness & Zumba Lead',
     experience: '6+ Years',
     specialties: ['Zumba Official', 'Bhangra Cardio', 'Pilates Core'],
