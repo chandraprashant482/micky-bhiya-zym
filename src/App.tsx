@@ -25,19 +25,23 @@ import {
   TESTIMONIALS,
 } from "./data";
 
+type Page = "home" | "videos" | "classes" | "schedule";
+
 export default function App() {
   const activeBranch = BRANCHES[0];
+
+  const [activePage, setActivePage] = useState<Page>("home");
 
   const [passModalOpen, setPassModalOpen] = useState(false);
   const [coachModalOpen, setCoachModalOpen] = useState(false);
 
   const [passSubmitted, setPassSubmitted] = useState(false);
 
- const [passFormData, setPassFormData] = useState({
-  name: "",
-  phone: "",
-  classInterest: "Zumba",
-});
+  const [passFormData, setPassFormData] = useState({
+    name: "",
+    phone: "",
+    classInterest: "Zumba",
+  });
 
   const [coachForm, setCoachForm] = useState({
     goal: "Fat Loss & Muscle Toning",
@@ -50,43 +54,54 @@ export default function App() {
   const [coachResponse, setCoachResponse] =
     useState<string | null>(null);
 
+  // =========================
+  // FREE TRIAL FORM
+  // =========================
+
   const handlePassSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    const response = await fetch("https://formspree.io/f/xaewnlvl", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        name: passFormData.name,
-        phone: passFormData.phone,
-        interestedClass: passFormData.classInterest,
-      }),
-    });
+    try {
+      const response = await fetch(
+        "https://formspree.io/f/xaewnlvl",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: passFormData.name,
+            phone: passFormData.phone,
+            interestedClass: passFormData.classInterest,
+          }),
+        }
+      );
 
-    if (response.ok) {
-      setPassSubmitted(true);
+      if (response.ok) {
+        setPassSubmitted(true);
 
-      setTimeout(() => {
-        setPassSubmitted(false);
-        setPassModalOpen(false);
+        setTimeout(() => {
+          setPassSubmitted(false);
+          setPassModalOpen(false);
 
-        setPassFormData({
-          name: "",
-          phone: "",
-          classInterest: "Zumba",
-        });
-      }, 2000);
-    } else {
-      alert("Failed to submit form.");
+          setPassFormData({
+            name: "",
+            phone: "",
+            classInterest: "Zumba",
+          });
+        }, 2000);
+      } else {
+        alert("Failed to submit form.");
+      }
+    } catch (error) {
+      alert("Something went wrong.");
     }
-  } catch (error) {
-    alert("Something went wrong.");
-  }
-};
+  };
+
+  // =========================
+  // RESERVE CLASS
+  // =========================
 
   const handleReserveClass = (className: string) => {
     setPassFormData((prev) => ({
@@ -96,6 +111,10 @@ export default function App() {
 
     setPassModalOpen(true);
   };
+
+  // =========================
+  // AI COACH
+  // =========================
 
   const handleCoachSubmit = async (
     e: React.FormEvent
@@ -119,51 +138,150 @@ Visit Lagoon Fitnes Gyms for a personalized plan.`
       setCoachLoading(false);
     }, 1500);
   };
-    return (
+
+  // =========================
+  // NAVIGATION
+  // =========================
+
+  const handleNavigate = (
+    page: Page,
+    section?: string
+  ) => {
+    setActivePage(page);
+
+    setTimeout(() => {
+      if (section) {
+        document
+          .getElementById(section)
+          ?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+      } else {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+    }, 50);
+  };
+
+  return (
     <div className="min-h-screen bg-black text-white selection:bg-red-600 selection:text-white font-sans antialiased">
 
-      <Navbar />
+      {/* =========================
+          NAVBAR
+         ========================= */}
 
-      <Hero
-        onOpenPassModal={() => setPassModalOpen(true)}
-        onOpenCoachModal={() => setCoachModalOpen(true)}
-      />
+      <Navbar onNavigate={handleNavigate} />
 
-      <WorkoutVideosSection
-        videos={WORKOUT_VIDEOS}
-      />
+      {/* =========================
+          HOME PAGE
+         ========================= */}
 
-      <ServicesSection
-        onOpenPassModal={() => setPassModalOpen(true)}
-      />
+      {activePage === "home" && (
+        <>
+          <Hero
+            onOpenPassModal={() =>
+              setPassModalOpen(true)
+            }
+            onOpenCoachModal={() =>
+              setCoachModalOpen(true)
+            }
+          />
 
-      <FacilityFeatures
-        features={FACILITY_FEATURES}
-      />
+          <ServicesSection
+            onOpenPassModal={() =>
+              setPassModalOpen(true)
+            }
+          />
 
-      <FitnessClasses
-        classes={FITNESS_CLASSES}
-        onReserveClass={handleReserveClass}
-      />
+          <FacilityFeatures
+            features={FACILITY_FEATURES}
+          />
 
-      <Schedule
-        schedule={SCHEDULE}
-        branchName={activeBranch.name}
-        onJoinClass={() => setPassModalOpen(true)}
-      />
+          <Trainers
+            trainers={TRAINERS}
+          />
 
-      <Trainers
-        trainers={TRAINERS}
-      />
+          <Testimonials
+            testimonials={TESTIMONIALS}
+          />
 
-      <Testimonials
-        testimonials={TESTIMONIALS}
-      />
+          <Footer
+            branches={BRANCHES}
+            onOpenPassModal={() =>
+              setPassModalOpen(true)
+            }
+          />
+        </>
+      )}
 
-      <Footer
-        branches={BRANCHES}
-        onOpenPassModal={() => setPassModalOpen(true)}
-      />
+      {/* =========================
+          WORKOUT VIDEOS PAGE
+         ========================= */}
+
+      {activePage === "videos" && (
+        <>
+          <WorkoutVideosSection
+            videos={WORKOUT_VIDEOS}
+          />
+
+          <Footer
+            branches={BRANCHES}
+            onOpenPassModal={() =>
+              setPassModalOpen(true)
+            }
+          />
+        </>
+      )}
+
+      {/* =========================
+          100+ CLASSES PAGE
+         ========================= */}
+
+      {activePage === "classes" && (
+        <>
+          <FitnessClasses
+            classes={FITNESS_CLASSES}
+            onReserveClass={handleReserveClass}
+          />
+
+          <Footer
+            branches={BRANCHES}
+            onOpenPassModal={() =>
+              setPassModalOpen(true)
+            }
+          />
+        </>
+      )}
+
+      {/* =========================
+          SCHEDULE PAGE
+         ========================= */}
+
+      {activePage === "schedule" && (
+        <>
+          <Schedule
+            schedule={SCHEDULE}
+            branchName={activeBranch.name}
+            onJoinClass={() =>
+              setPassModalOpen(true)
+            }
+          />
+
+          <Footer
+            branches={BRANCHES}
+            onOpenPassModal={() =>
+              setPassModalOpen(true)
+            }
+          />
+        </>
+      )}
+
+      {/* =========================
+          PASS MODAL
+         ========================= */}
 
       <PassModal
         open={passModalOpen}
@@ -171,8 +289,14 @@ Visit Lagoon Fitnes Gyms for a personalized plan.`
         formData={passFormData}
         setFormData={setPassFormData}
         onSubmit={handlePassSubmit}
-        onClose={() => setPassModalOpen(false)}
+        onClose={() =>
+          setPassModalOpen(false)
+        }
       />
+
+      {/* =========================
+          AI COACH MODAL
+         ========================= */}
 
       <CoachModal
         open={coachModalOpen}
@@ -182,8 +306,14 @@ Visit Lagoon Fitnes Gyms for a personalized plan.`
         form={coachForm}
         setForm={setCoachForm}
         onSubmit={handleCoachSubmit}
-        onClose={() => setCoachModalOpen(false)}
+        onClose={() =>
+          setCoachModalOpen(false)
+        }
       />
+
+      {/* =========================
+          FLOATING BUTTONS
+         ========================= */}
 
       <CallButton />
       <WhatsAppButton />
