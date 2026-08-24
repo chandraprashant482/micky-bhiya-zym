@@ -91,13 +91,7 @@ export const Hero: React.FC<HeroProps> = ({
             <ArrowRight className="w-5 h-5" />
           </button>
 
-          <a
-            href="#videos"
-            className="px-8 py-4 rounded-full border border-white/20 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-bold uppercase tracking-wider flex items-center gap-3 transition-all duration-300"
-          >
-            <Play className="w-5 h-5 fill-red-500 text-red-500" />
-            Watch Gym Tour
-          </a>
+      
 
           <button
             onClick={onOpenCoachModal}

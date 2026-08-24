@@ -159,7 +159,7 @@ export const FITNESS_CLASSES: FitnessClass[] = [
   },
   {
     id: 'bhangra',
-    name: 'Bhangra Fitness',
+    name: 'Bhangra & Dance Classes',
     image: 'https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?q=80&w=800&auto=format&fit=crop',
     intensity: 'High',
     duration: '50 Mins',
@@ -189,8 +189,8 @@ export const FITNESS_CLASSES: FitnessClass[] = [
 export const TRAINERS: Trainer[] = [
   {
     id: 't1',
-    name: 'Sushant Singh',
-    role: 'Head Strength Coach & Master PT',
+    name: 'Sushant',
+    role: 'Owner | Head Strength Coach | Master Personal Trainer',
     experience: '11+ Years',
     specialties: ['Hypertrophy', 'Powerlifting', 'Fat Loss Protocol'],
     image: "/mickyphoto.png",
@@ -199,32 +199,32 @@ export const TRAINERS: Trainer[] = [
   },
   {
     id: 't2',
-    name: 'Prashant Yadav',
-    role: 'Group Fitness & Zumba Lead',
+    name: 'Abhishekla',
+    role: 'Group Fitness | Zumba Lead',
     experience: '6+ Years',
     specialties: ['Zumba Official', 'Bhangra Cardio', 'Pilates Core'],
-    image: "/mickyphoto.png",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLypeLSCARyxVXWeE9jC_d8GGAoOpC10WWYDXgR35yxQ&s=10",
     bio: 'Licensed Zumba Fitness instructor bringing electrifying rhythm and fat-melting beats to every class.',
     rating: 5.0
   },
   {
     id: 't3',
-    name: 'Sushant Singh',
-    role: 'Functional & Combat Conditioning',
+    name: 'Ashutosh',
+    role: 'Cricket | Pickleball | Sports Coach',
     experience: '8+ Years',
-    specialties: ['Kettlebell Level 2', 'Calisthenics', 'MMA Conditioning'],
-    image: "/mickyphoto.png",
+    specialties: ['Cricket Training', 'Pickleball Training', 'Sports Conditioning'],
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLypeLSCARyxVXWeE9jC_d8GGAoOpC10WWYDXgR35yxQ&s=10",
     bio: 'Former national martial arts practitioner specializing in explosive athletic endurance & agility.',
     rating: 4.8
   },
   {
     id: 't4',
-    name: 'Prashant Kumar',
-    role: 'Power Yoga & Mindful Wellness',
+    name: 'Prashant',
+    role: 'MMA | Boxing Coach',
     experience: '7+ Years',
-    specialties: ['Ashtanga Vinyasa', 'Flexibility Rehab', 'Posture Correction'],
-   image: "/mickyphoto.png",
-    bio: 'RYT-500 Certified Yoga Alliance Master focused on mobility, core stability, and holistic mindfulness.',
+    specialties: ['MMA Training', 'Boxing', 'Combat Conditioning'],
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLypeLSCARyxVXWeE9jC_d8GGAoOpC10WWYDXgR35yxQ&s=10",
+    bio: 'Experienced MMA & Boxing Coach focused on combat fitness, striking technique, strength, conditioning, and overall athletic performance.',
     rating: 4.9
   }
 ];
