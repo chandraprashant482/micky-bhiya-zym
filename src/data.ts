@@ -23,19 +23,21 @@ export const SERVICES: ServiceItem[] = [
     description: 'Precision-engineered resistance machines, heavy-duty Olympic barbells, and custom dumbbell stations.'
   },
   {
-    id: 'steam-bath',
-    title: 'Eucalyptus Steam Bath',
-    subtitle: 'Post-Workout Detox',
-    image: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=800&auto=format&fit=crop',
+    id: 'swimming-bath',
+    title: "Swimming Pool",
+    subtitle: "Premium Swimming Pool",
+    image: "/swimming-pool.jpeg",
     description: 'Therapeutic aromatic steam rooms designed to soothe muscles, boost circulation, and speed recovery.'
   },
   {
-    id: 'hot-cold-shower',
-    title: 'Hot & Cold Spa Showers',
-    subtitle: 'Hygiene & Comfort',
-    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800&auto=format&fit=crop',
-    description: 'Ultra-hygienic private shower suites stocked with premium toiletries and hot/cold contrast controls.'
-  },
+  id: "luxury-stay",
+  title: "Luxury Stay Rooms",
+  subtitle: "Premium Resort Accommodation",
+  image:
+    "/resort.jpeg",
+  description:
+    "Relax and stay in premium resort-style rooms designed with modern interiors, comfortable spaces, and a luxurious atmosphere for complete comfort and relaxation.",
+},
   {
     id: 'healthy-cafe',
     title: 'Protein Cafe & Smoothie Bar',
