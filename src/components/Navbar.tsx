@@ -85,12 +85,12 @@ export const Navbar: React.FC = () => {
               Schedule
             </Link>
 
-            <Link
-              to="/#trainers"
-              className="text-sm font-bold uppercase tracking-wider text-zinc-300 hover:text-red-500 transition"
-            >
-              Trainers
-            </Link>
+            <a
+  href="/#trainers"
+  className="text-sm font-bold uppercase tracking-wider text-zinc-300 hover:text-red-500 transition"
+>
+  Trainers
+</a>
 
           </nav>
 
@@ -162,13 +162,13 @@ export const Navbar: React.FC = () => {
               Schedule
             </Link>
 
-            <Link
-              to="/#trainers"
-              onClick={closeMobileMenu}
-              className="text-left text-lg font-bold text-zinc-200 hover:text-red-500 border-b border-zinc-800 pb-3 transition"
-            >
-              Trainers
-            </Link>
+            <a
+  href="/#trainers"
+  onClick={closeMobileMenu}
+  className="text-left text-lg font-bold text-zinc-200 hover:text-red-500 border-b border-zinc-800 pb-3 transition"
+>
+  Trainers
+</a>
 
           </div>
         </div>
