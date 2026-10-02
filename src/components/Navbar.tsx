@@ -1,22 +1,11 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
-type Page = "home" | "videos" | "classes" | "schedule";
-
-interface NavbarProps {
-  onNavigate: (page: Page, section?: string) => void;
-}
-
-export const Navbar: React.FC<NavbarProps> = ({
-  onNavigate,
-}) => {
+export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navigate = (
-    page: Page,
-    section?: string
-  ) => {
-    onNavigate(page, section);
+  const closeMobileMenu = () => {
     setMobileMenuOpen(false);
   };
 
@@ -29,12 +18,11 @@ export const Navbar: React.FC<NavbarProps> = ({
       <header className="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-white/10 shadow-2xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 
-          {/* =========================
-              LOGO
-             ========================= */}
+          {/* LOGO */}
 
-          <button
-            onClick={() => navigate("home")}
+          <Link
+            to="/"
+            onClick={closeMobileMenu}
             className="flex items-center gap-3 group text-left"
           >
             <img
@@ -56,71 +44,57 @@ export const Navbar: React.FC<NavbarProps> = ({
                 24×7 Ultra Luxury GYM
               </span>
             </div>
-          </button>
+          </Link>
 
-          {/* =========================
-              DESKTOP NAVIGATION
-             ========================= */}
+          {/* DESKTOP NAVIGATION */}
 
           <nav className="hidden md:flex items-center gap-8">
 
-            {/* Home */}
-            <button
-              onClick={() => navigate("home")}
+            <Link
+              to="/"
               className="text-sm font-bold uppercase tracking-wider text-zinc-300 hover:text-red-500 transition"
             >
               Home
-            </button>
+            </Link>
 
-            {/* Workout Videos */}
-            <button
-              onClick={() => navigate("videos")}
+            <Link
+              to="/videos"
               className="text-sm font-bold uppercase tracking-wider text-zinc-300 hover:text-red-500 transition"
             >
               Workout Videos
-            </button>
+            </Link>
 
-            {/* Services */}
-            <button
-              onClick={() =>
-                navigate("home", "services")
-              }
+            <Link
+              to="/#services"
               className="text-sm font-bold uppercase tracking-wider text-zinc-300 hover:text-red-500 transition"
             >
               Services
-            </button>
+            </Link>
 
-            {/* 100+ Classes */}
-            <button
-              onClick={() => navigate("classes")}
+            <Link
+              to="/classes"
               className="text-sm font-bold uppercase tracking-wider text-zinc-300 hover:text-red-500 transition"
             >
               100+ Classes
-            </button>
+            </Link>
 
-            {/* Schedule */}
-            <button
-              onClick={() => navigate("schedule")}
+            <Link
+              to="/schedule"
               className="text-sm font-bold uppercase tracking-wider text-zinc-300 hover:text-red-500 transition"
             >
               Schedule
-            </button>
+            </Link>
 
-            {/* Trainers */}
-            <button
-              onClick={() =>
-                navigate("home", "trainers")
-              }
+            <Link
+              to="/#trainers"
               className="text-sm font-bold uppercase tracking-wider text-zinc-300 hover:text-red-500 transition"
             >
               Trainers
-            </button>
+            </Link>
 
           </nav>
 
-          {/* =========================
-              MOBILE MENU BUTTON
-             ========================= */}
+          {/* MOBILE MENU BUTTON */}
 
           <div className="md:hidden">
             <button
@@ -141,66 +115,60 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </header>
 
-      {/* =========================
-          MOBILE MENU
-         ========================= */}
+      {/* MOBILE MENU */}
 
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl pt-24 px-6 md:hidden">
 
           <div className="flex flex-col gap-5">
 
-            {/* Home */}
-            <button
-              onClick={() => navigate("home")}
+            <Link
+              to="/"
+              onClick={closeMobileMenu}
               className="text-left text-lg font-bold text-zinc-200 hover:text-red-500 border-b border-zinc-800 pb-3 transition"
             >
               Home
-            </button>
+            </Link>
 
-            {/* Workout Videos */}
-            <button
-              onClick={() => navigate("videos")}
+            <Link
+              to="/videos"
+              onClick={closeMobileMenu}
               className="text-left text-lg font-bold text-zinc-200 hover:text-red-500 border-b border-zinc-800 pb-3 transition"
             >
               Workout Videos
-            </button>
+            </Link>
 
-            {/* Services */}
-            <button
-              onClick={() =>
-                navigate("home", "services")
-              }
+            <Link
+              to="/#services"
+              onClick={closeMobileMenu}
               className="text-left text-lg font-bold text-zinc-200 hover:text-red-500 border-b border-zinc-800 pb-3 transition"
             >
               Services
-            </button>
+            </Link>
 
-            {/* 100+ Classes */}
-            <button
-              onClick={() => navigate("classes")}
+            <Link
+              to="/classes"
+              onClick={closeMobileMenu}
               className="text-left text-lg font-bold text-zinc-200 hover:text-red-500 border-b border-zinc-800 pb-3 transition"
             >
               100+ Classes
-            </button>
+            </Link>
 
-            {/* Schedule */}
-            <button
-              onClick={() => navigate("schedule")}
+            <Link
+              to="/schedule"
+              onClick={closeMobileMenu}
               className="text-left text-lg font-bold text-zinc-200 hover:text-red-500 border-b border-zinc-800 pb-3 transition"
             >
               Schedule
-            </button>
+            </Link>
 
-            {/* Trainers */}
-            <button
-              onClick={() =>
-                navigate("home", "trainers")
-              }
+            <Link
+              to="/#trainers"
+              onClick={closeMobileMenu}
               className="text-left text-lg font-bold text-zinc-200 hover:text-red-500 border-b border-zinc-800 pb-3 transition"
             >
               Trainers
-            </button>
+            </Link>
 
           </div>
         </div>

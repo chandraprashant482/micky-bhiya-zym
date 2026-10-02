@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
@@ -25,23 +30,31 @@ import {
   TESTIMONIALS,
 } from "./data";
 
-type Page = "home" | "videos" | "classes" | "schedule";
-
 export default function App() {
   const activeBranch = BRANCHES[0];
 
-  const [activePage, setActivePage] = useState<Page>("home");
+  // =========================
+  // MODAL STATES
+  // =========================
 
   const [passModalOpen, setPassModalOpen] = useState(false);
   const [coachModalOpen, setCoachModalOpen] = useState(false);
 
   const [passSubmitted, setPassSubmitted] = useState(false);
 
+  // =========================
+  // FREE PASS FORM
+  // =========================
+
   const [passFormData, setPassFormData] = useState({
     name: "",
     phone: "",
     classInterest: "Zumba",
   });
+
+  // =========================
+  // AI COACH FORM
+  // =========================
 
   const [coachForm, setCoachForm] = useState({
     goal: "Fat Loss & Muscle Toning",
@@ -95,6 +108,7 @@ export default function App() {
         alert("Failed to submit form.");
       }
     } catch (error) {
+      console.error("Form submission error:", error);
       alert("Something went wrong.");
     }
   };
@@ -132,7 +146,7 @@ export default function App() {
 • Protein Rich Diet
 • Sleep 7-8 Hours
 
-Visit Lagoon Fitnes Gyms for a personalized plan.`
+Visit Lagoon Fitness Gym for a personalized plan.`
       );
 
       setCoachLoading(false);
@@ -140,184 +154,185 @@ Visit Lagoon Fitnes Gyms for a personalized plan.`
   };
 
   // =========================
-  // NAVIGATION
+  // HOME PAGE
   // =========================
 
-  const handleNavigate = (
-    page: Page,
-    section?: string
-  ) => {
-    setActivePage(page);
+  const HomePage = () => (
+    <>
+      <Hero
+        onOpenPassModal={() =>
+          setPassModalOpen(true)
+        }
+        onOpenCoachModal={() =>
+          setCoachModalOpen(true)
+        }
+      />
 
-    setTimeout(() => {
-      if (section) {
-        document
-          .getElementById(section)
-          ?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-      } else {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      }
-    }, 50);
-  };
+      <ServicesSection
+        onOpenPassModal={() =>
+          setPassModalOpen(true)
+        }
+      />
+
+      <FacilityFeatures
+        features={FACILITY_FEATURES}
+      />
+
+      <Trainers
+        trainers={TRAINERS}
+      />
+
+      <Testimonials
+        testimonials={TESTIMONIALS}
+      />
+
+      <Footer
+        branches={BRANCHES}
+        onOpenPassModal={() =>
+          setPassModalOpen(true)
+        }
+      />
+    </>
+  );
+
+  // =========================
+  // WORKOUT VIDEOS PAGE
+  // =========================
+
+  const WorkoutVideosPage = () => (
+    <>
+      <WorkoutVideosSection
+        videos={WORKOUT_VIDEOS}
+      />
+
+      <Footer
+        branches={BRANCHES}
+        onOpenPassModal={() =>
+          setPassModalOpen(true)
+        }
+      />
+    </>
+  );
+
+  // =========================
+  // CLASSES PAGE
+  // =========================
+
+  const ClassesPage = () => (
+    <>
+      <FitnessClasses
+        classes={FITNESS_CLASSES}
+        onReserveClass={handleReserveClass}
+      />
+
+      <Footer
+        branches={BRANCHES}
+        onOpenPassModal={() =>
+          setPassModalOpen(true)
+        }
+      />
+    </>
+  );
+
+  // =========================
+  // SCHEDULE PAGE
+  // =========================
+
+  const SchedulePage = () => (
+    <>
+      <Schedule
+        schedule={SCHEDULE}
+        branchName={activeBranch.name}
+        onJoinClass={() =>
+          setPassModalOpen(true)
+        }
+      />
+
+      <Footer
+        branches={BRANCHES}
+        onOpenPassModal={() =>
+          setPassModalOpen(true)
+        }
+      />
+    </>
+  );
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-red-600 selection:text-white font-sans antialiased">
+    <BrowserRouter>
+      <div className="min-h-screen bg-black text-white selection:bg-red-600 selection:text-white font-sans antialiased">
 
-      {/* =========================
-          NAVBAR
-         ========================= */}
+        {/* =========================
+            NAVBAR
+           ========================= */}
 
-      <Navbar onNavigate={handleNavigate} />
+        <Navbar />
 
-      {/* =========================
-          HOME PAGE
-         ========================= */}
+        {/* =========================
+            ROUTES
+           ========================= */}
 
-      {activePage === "home" && (
-        <>
-          <Hero
-            onOpenPassModal={() =>
-              setPassModalOpen(true)
-            }
-            onOpenCoachModal={() =>
-              setCoachModalOpen(true)
-            }
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage />}
           />
 
-          <ServicesSection
-            onOpenPassModal={() =>
-              setPassModalOpen(true)
-            }
+          <Route
+            path="/videos"
+            element={<WorkoutVideosPage />}
           />
 
-          <FacilityFeatures
-            features={FACILITY_FEATURES}
+          <Route
+            path="/classes"
+            element={<ClassesPage />}
           />
 
-          <Trainers
-            trainers={TRAINERS}
+          <Route
+            path="/schedule"
+            element={<SchedulePage />}
           />
+        </Routes>
 
-          <Testimonials
-            testimonials={TESTIMONIALS}
-          />
+        {/* =========================
+            FREE PASS MODAL
+           ========================= */}
 
-          <Footer
-            branches={BRANCHES}
-            onOpenPassModal={() =>
-              setPassModalOpen(true)
-            }
-          />
-        </>
-      )}
+        <PassModal
+          open={passModalOpen}
+          submitted={passSubmitted}
+          formData={passFormData}
+          setFormData={setPassFormData}
+          onSubmit={handlePassSubmit}
+          onClose={() =>
+            setPassModalOpen(false)
+          }
+        />
 
-      {/* =========================
-          WORKOUT VIDEOS PAGE
-         ========================= */}
+        {/* =========================
+            AI COACH MODAL
+           ========================= */}
 
-      {activePage === "videos" && (
-        <>
-          <WorkoutVideosSection
-            videos={WORKOUT_VIDEOS}
-          />
+        <CoachModal
+          open={coachModalOpen}
+          loading={coachLoading}
+          response={coachResponse}
+          branchName={activeBranch.name}
+          form={coachForm}
+          setForm={setCoachForm}
+          onSubmit={handleCoachSubmit}
+          onClose={() =>
+            setCoachModalOpen(false)
+          }
+        />
 
-          <Footer
-            branches={BRANCHES}
-            onOpenPassModal={() =>
-              setPassModalOpen(true)
-            }
-          />
-        </>
-      )}
+        {/* =========================
+            FLOATING BUTTONS
+           ========================= */}
 
-      {/* =========================
-          100+ CLASSES PAGE
-         ========================= */}
+        <CallButton />
+        <WhatsAppButton />
 
-      {activePage === "classes" && (
-        <>
-          <FitnessClasses
-            classes={FITNESS_CLASSES}
-            onReserveClass={handleReserveClass}
-          />
-
-          <Footer
-            branches={BRANCHES}
-            onOpenPassModal={() =>
-              setPassModalOpen(true)
-            }
-          />
-        </>
-      )}
-
-      {/* =========================
-          SCHEDULE PAGE
-         ========================= */}
-
-      {activePage === "schedule" && (
-        <>
-          <Schedule
-            schedule={SCHEDULE}
-            branchName={activeBranch.name}
-            onJoinClass={() =>
-              setPassModalOpen(true)
-            }
-          />
-
-          <Footer
-            branches={BRANCHES}
-            onOpenPassModal={() =>
-              setPassModalOpen(true)
-            }
-          />
-        </>
-      )}
-
-      {/* =========================
-          PASS MODAL
-         ========================= */}
-
-      <PassModal
-        open={passModalOpen}
-        submitted={passSubmitted}
-        formData={passFormData}
-        setFormData={setPassFormData}
-        onSubmit={handlePassSubmit}
-        onClose={() =>
-          setPassModalOpen(false)
-        }
-      />
-
-      {/* =========================
-          AI COACH MODAL
-         ========================= */}
-
-      <CoachModal
-        open={coachModalOpen}
-        loading={coachLoading}
-        response={coachResponse}
-        branchName={activeBranch.name}
-        form={coachForm}
-        setForm={setCoachForm}
-        onSubmit={handleCoachSubmit}
-        onClose={() =>
-          setCoachModalOpen(false)
-        }
-      />
-
-      {/* =========================
-          FLOATING BUTTONS
-         ========================= */}
-
-      <CallButton />
-      <WhatsAppButton />
-
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
